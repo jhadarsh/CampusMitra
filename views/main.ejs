@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusMitra - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .navbar {
+            background-color: #ffccd5;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #fff;
+        }
+        .navbar-nav a {
+            color: #000;
+            font-weight: bold;
+        }
+        .jumbotron {
+            background-color: #ffebee;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        .professor-card {
+            background-color: #f28b82;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .professor-card img {
+            border-radius: 50%;
+            width: 80px;
+        }
+        .dropdown-select {
+            margin: 10px 0;
+        }
+        .btn-start {
+            background-color: #ff6f61;
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .doubt-section {
+            background-color: #80cbc4;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">CampusMitra</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <!-- <a class="nav-link" href="#">Societies</a> -->
+                     <form method="get" action="/societies">
+                        <button class="nav-link">Societies</button>
+                     </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Professor Section -->
+            <div class="col-md-6">
+               <% for( data of datas ) { %>
+                <div class="professor-card">
+                    <div class="d-flex align-items-center">
+                        <img src="/images/sanjay-kumar.jpg" alt="Dr. Sanjay Kumar">
+                        <div class="ml-3">
+                            <h2><%= data.name %></h2>
+                            <p><%= data.bio %></p>
+                            <h4>Email :-<%= data.contactInfo.email %></h4>
+                            <h4>Phone no:-<%= data.contactInfo.phone %></h4>
+                        </div>
+                    </div>
+                </div>
+               <% } %>
+            </div>
+
+            <!-- Selection and Button Section -->
+            <div class="col-md-6 text-center">
+                <form action="/home" method="get"> 
+                    <div class="dropdown-select">
+                        <select class="form-control">
+                            <option>Select Branch</option>
+                            <option>Computer Science</option>
+                            <option>Information & Technology</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                    <div class="dropdown-select">
+                        <select class="form-control">
+                            <option>Select Semester</option>
+                            <option>Semester 1</option>
+                            <option>Semester 2</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                   
+                        <button class="btn btn-start mt-3">Get Started</button>
+                   
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Doubt Section -->
+    <div class="container mt-5 doubt-section">
+        <h4>Drop your Doubts</h4>
+        <p>Have a question? Our experts are here to help.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3">
+        <p>© 2024 CampusMitra. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

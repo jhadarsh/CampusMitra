@@ -1,80 +1,86 @@
-const sampleSocieties = [
-    {
-      name: 'Tech Innovators Society',
-      bio: 'A society that fosters innovation and creativity in the field of technology. We host hackathons, workshops, and coding events to help students develop their skills.',
-      image: '/images/societies/tech_innovators.jpg',
-      auditionDate: new Date('2024-11-15'),
-      numberOfStudents: 150,
-      president: { name: 'Aman Kumar', contactInfo: 'aman.kumar@example.com' },
-      vicePresident: { name: 'Pooja Singh', contactInfo: 'pooja.singh@example.com' },
-      coreTeam: [
-        { name: 'Rahul Gupta', role: 'Event Manager' },
-        { name: 'Sanya Mehta', role: 'PR Head' },
+const teachers = [
+  {
+      name: 'Dr. Sanjay Kumar',
+      bio: 'Dr. Sanjay Kumar is helping students in achieving exemplary academic performance towards getting their career and financial goals.',
+      image: 'https://example.com/images/sanjay.jpg',
+      subjects: ['Mathematics', 'Physics'],
+      reviews: [
+          {
+              user: 'USER_ID_1',
+              rating: 5,
+              comment: 'Dr. Kumar is an excellent professor. His teaching methods are top-notch!',
+          },
+          {
+              user: 'USER_ID_2',
+              rating: 4,
+              comment: 'Great teacher, but sometimes goes too fast.',
+          }
       ],
-      facultyName: 'Prof. Manish Sharma',
-      establishmentDate: new Date('2018-07-10'),
-    },
-    {
-      name: 'Cultural Club',
-      bio: 'The cultural club is all about celebrating diversity and talent. From dance to drama, we embrace all forms of artistic expression.',
-      image: '/images/societies/cultural_club.jpg',
-      auditionDate: new Date('2024-12-01'),
-      numberOfStudents: 200,
-      president: { name: 'Anjali Verma', contactInfo: 'anjali.verma@example.com' },
-      vicePresident: { name: 'Rohit Sinha', contactInfo: 'rohit.sinha@example.com' },
-      coreTeam: [
-        { name: 'Simran Kaur', role: 'Music Coordinator' },
-        { name: 'Ravi Patel', role: 'Dance Coordinator' },
+      overallRating: 4.5
+  },
+  {
+      name: 'Dr. Niranjan Bhattacharyya',
+      bio: 'Dr. Bhattacharyya has been teaching Engineering for over 16 years with a focus on real-world applications.',
+      image: 'https://example.com/images/niranjan.jpg',
+      subjects: ['Mechanical Engineering', 'Thermodynamics'],
+      reviews: [
+          {
+              user: 'USER_ID_3',
+              rating: 4,
+              comment: 'Engaging lectures but difficult to keep up sometimes.',
+          }
       ],
-      facultyName: 'Prof. Neha Agrawal',
-      establishmentDate: new Date('2016-05-20'),
-    },
-    {
-      name: 'Entrepreneurship Cell',
-      bio: 'E-Cell empowers students to pursue their entrepreneurial dreams by providing mentorship, resources, and networking opportunities.',
-      image: '/images/societies/entrepreneurship_cell.jpg',
-      auditionDate: new Date('2024-11-05'),
-      numberOfStudents: 120,
-      president: { name: 'Rakesh Mishra', contactInfo: 'rakesh.mishra@example.com' },
-      vicePresident: { name: 'Isha Agarwal', contactInfo: 'isha.agarwal@example.com' },
-      coreTeam: [
-        { name: 'Kunal Singh', role: 'Marketing Head' },
-        { name: 'Meera Jain', role: 'Finance Head' },
+      overallRating: 4
+  },
+  {
+      name: 'Dr. Anjali Sharma',
+      bio: 'Dr. Sharma is a renowned professor in the field of Computer Science with a special focus on Data Structures and Algorithms.',
+      image: 'https://example.com/images/anjali.jpg',
+      subjects: ['Computer Science', 'Data Structures'],
+      reviews: [
+          {
+              user: 'USER_ID_4',
+              rating: 5,
+              comment: 'Amazing professor! Her explanations are crystal clear.',
+          },
+          {
+              user: 'USER_ID_5',
+              rating: 4,
+              comment: 'Very knowledgeable but the pace is fast.',
+          }
       ],
-      facultyName: 'Prof. Sunil Kapoor',
-      establishmentDate: new Date('2015-03-18'),
-    },
-    {
-      name: 'Drama and Theatre Society',
-      bio: 'A vibrant community that promotes performing arts through drama and theatre. Our society performs regularly and holds acting workshops.',
-      image: '/images/societies/drama_society.jpg',
-      auditionDate: new Date('2024-11-25'),
-      numberOfStudents: 75,
-      president: { name: 'Niharika Chatterjee', contactInfo: 'niharika.chatterjee@example.com' },
-      vicePresident: { name: 'Shivam Joshi', contactInfo: 'shivam.joshi@example.com' },
-      coreTeam: [
-        { name: 'Saurabh Mehta', role: 'Script Writer' },
-        { name: 'Tara Singh', role: 'Set Designer' },
+      overallRating: 4.5
+  },
+  {
+      name: 'Prof. Ramesh Singh',
+      bio: 'Prof. Ramesh Singh specializes in teaching Electrical Engineering and has over 10 years of teaching experience.',
+      image: 'https://example.com/images/ramesh.jpg',
+      subjects: ['Electrical Engineering', 'Circuit Analysis'],
+      reviews: [
+          {
+              user: 'USER_ID_6',
+              rating: 3,
+              comment: 'Good teacher but his lectures can be monotonous at times.',
+          }
       ],
-      facultyName: 'Prof. Meena Sharma',
-      establishmentDate: new Date('2014-09-22'),
-    },
-    {
-      name: 'Robotics Club',
-      bio: 'The Robotics Club focuses on building advanced robotic systems and AI-based projects. We participate in national and international robotics competitions.',
-      image: '/images/societies/robotics_club.jpg',
-      auditionDate: new Date('2024-12-05'),
-      numberOfStudents: 90,
-      president: { name: 'Arjun Das', contactInfo: 'arjun.das@example.com' },
-      vicePresident: { name: 'Leena Paul', contactInfo: 'leena.paul@example.com' },
-      coreTeam: [
-        { name: 'Vivek Sharma', role: 'Hardware Lead' },
-        { name: 'Aditi Rao', role: 'Software Lead' },
+      overallRating: 3
+  },
+  {
+      name: 'Dr. Meera Kapoor',
+      bio: 'Dr. Meera Kapoor is a passionate educator in the field of Environmental Science and Sustainable Development.',
+      image: 'https://example.com/images/meera.jpg',
+      subjects: ['Environmental Science', 'Sustainable Development'],
+      reviews: [
+          {
+              user: 'USER_ID_7',
+              rating: 4,
+              comment: 'Her classes are insightful and thought-provoking!',
+          }
       ],
-      facultyName: 'Prof. Anupam Verma',
-      establishmentDate: new Date('2017-01-15'),
-    }
-  ];
+      overallRating: 4
+  }
+];
+
   
-  module.exports = {data : sampleSocieties};
+  module.exports = {data : teachers};
   

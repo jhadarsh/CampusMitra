@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Professor = require("./models/professors");
 const Society = require("./models/societies");
+const Teacher = require("./models/teachers");
 const path = require("path");
 const methodOverride = require("method-override");
 
@@ -38,6 +39,11 @@ app.get("/home", (req, res) => {
     res.render("Home.ejs");
   
 });
+
+app.get("/professors-reviews", async (req,res)=>{
+  let teachers = await Teacher.find();
+  res.render("teachers.ejs" , {teachers});
+})
 
 app.listen(8080, (req, res) => {
   console.log("port is listening on 8080");

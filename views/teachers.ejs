@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meet Our Professors</h1>
+
+        <div class="teachers-grid">
+           <% for( teacher of teachers) { %>
+           
+                <div class="teacher-card">
+                    <div class="teacher-image">
+                        <img src="<%= teacher.image %>" alt="<%= teacher.name %>">
+                    </div>
+                    <div class="teacher-info">
+                        <h2><%= teacher.name %></h2>
+                        <p><%= teacher.bio %></p>
+                        <p><strong>Subjects:</strong> <%= teacher.subjects.join(', ') %></p>
+    
+                        <div class="reviews">
+                            <h3>Reviews</h3>
+                            <% for( review of teacher.reviews ) { %>
+                                <div class="review">
+                                    <p><strong>User:</strong> <%= review.user %></p>
+                                    <p><strong>Rating:</strong> <%= review.rating %></p>
+                                    <p><strong>Comment:</strong> <%= review.comment %></p>
+                                </div>
+                            <% } %>
+                          
+                        </div>
+                        <p><strong>Overall Rating:</strong> <%= teacher.overallRating %>/5</p>
+                    </div>
+                </div>
+               
+           <% } %>
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .teachers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .teacher-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 30%;
+        }
+        .teacher-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .teacher-info h2 {
+            margin: 10px 0;
+        }
+        .reviews {
+            margin-top: 15px;
+        }
+        .review {
+            background-color: #efefef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</body>
+</html>

@@ -19,14 +19,14 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center mt-4">Campus Mitra Dashboard</h1>
+        <h1 class="text-center mt-4">Campus Mitra Dashboard of <%= branch %> and <%= semester %></h1>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Teacher Reviews</h5>
                         <p class="card-text">Rate and review your teachers based on your experiences.</p>
-                        <form method="get" action="/professors-reviews">
+                        <form method="get" action="/professors-reviews/<%= branch %>/<%= semester %>">
                             <button> <a class="btn btn-primary">View Reviews</a></button>
                         </form>
 
@@ -49,7 +49,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Subjects</h5>
                         <p class="card-text">Explore available subjects and their details.</p>
-                        <form method="get" action="/View-subjects">
+                        <form method="get" action="/View-subjects/<%= branch %>/<%= semester %>">
                             <button> <a class="btn btn-primary">View Subjects</a></button>
                         </form>
                     </div>
@@ -73,7 +73,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Exam Info</h5>
                         <p class="card-text">Get the latest updates and information regarding exams.</p>
-                        <form method="get" action="/View-exam-info">
+                        <form method="get" action="/View-exam-info/<%= branch %>/<%= semester %>">
                             <button><a class="btn btn-primary">Check Exam Info</a></button>
                         </form>
                     </div>

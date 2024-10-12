@@ -44,7 +44,13 @@ const examInfoSchema = new mongoose.Schema({
     semester: {
         type: Number,
         required: true
-    }
+    },
+    branch: [
+        {
+          type: String,
+        },
+    ]
+   
 });
 
 const ExamInfo = mongoose.model('ExamInfo', examInfoSchema);

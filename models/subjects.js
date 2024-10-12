@@ -56,7 +56,13 @@ const subjectSchema = new Schema({
         required: true,
         min: 1, // Minimum value of semester
         max: 8  // Assuming 8 semesters in a typical degree course
-    }
+    },
+    branch: [
+        {
+          type: String,
+        },
+      ]
+    
 }, {
     timestamps: true
 });

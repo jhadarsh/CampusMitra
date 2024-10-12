@@ -13,18 +13,27 @@ const teacherSchema = new mongoose.Schema({
     type: String, // URL of the teacher's image
     required: true,
   },
-
+  branch: [
+    {
+      type: String,
+    },
+  ],
+  semester: [
+    {
+      type: Number,
+    },
+  ],
   subjects: [
     {
       type: String, // List of subjects the teacher handles
       required: true,
     },
   ],
-  reviews :[
+  reviews: [
     {
-      user : String,
-      rating : Number,
-      comment : String,
+      user: String,
+      rating: Number,
+      comment: String,
     },
   ],
   overallRating: {

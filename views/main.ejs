@@ -95,21 +95,32 @@
 
             <!-- Selection and Button Section -->
             <div class="col-md-6 text-center">
-                <form action="/home" method="get"> 
+                <form action="/home" method="post"> 
                     <div class="dropdown-select">
-                        <select class="form-control">
-                            <option>Select Branch</option>
-                            <option>Computer Science</option>
-                            <option>Information & Technology</option>
-                            <!-- Add more options as needed -->
+                        <label for="branch">Select Branch:</label>
+                        <select name="branch" id="branch" required>
+                            <option value="">--Select Branch--</option>
+                            <option value="CSE">Computer Science & Engineering (CSE)</option>
+                            <option value="ECE">Electronics & Communication Engineering (ECE)</option>
+                            <option value="ME">Mechanical Engineering (ME)</option>
+                            <option value="CE">Civil Engineering (CE)</option>
+                            <option value="EE">Electrical Engineering (EE)</option>
+                            <!-- Add more branches as needed -->
                         </select>
                     </div>
                     <div class="dropdown-select">
-                        <select class="form-control">
-                            <option>Select Semester</option>
-                            <option>Semester 1</option>
-                            <option>Semester 2</option>
-                            <!-- Add more options as needed -->
+                        <label for="semester">Select Semester:</label>
+                        <select name="semester" id="semester" required>
+                            <option value="">--Select Semester--</option>
+                            <option value="1">1st Semester</option>
+                            <option value="2">2nd Semester</option>
+                            <option value="3">3rd Semester</option>
+                            <option value="4">4th Semester</option>
+                            <option value="5">5th Semester</option>
+                            <option value="6">6th Semester</option>
+                            <option value="7">7th Semester</option>
+                            <option value="8">8th Semester</option>
+                            <!-- Add more semesters if needed -->
                         </select>
                     </div>
                    

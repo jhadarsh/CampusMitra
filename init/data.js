@@ -1,86 +1,50 @@
-const teachers = [
-  {
-      name: 'Dr. Sanjay Kumar',
-      bio: 'Dr. Sanjay Kumar is helping students in achieving exemplary academic performance towards getting their career and financial goals.',
-      image: 'https://example.com/images/sanjay.jpg',
-      subjects: ['Mathematics', 'Physics'],
-      reviews: [
-          {
-              user: 'USER_ID_1',
-              rating: 5,
-              comment: 'Dr. Kumar is an excellent professor. His teaching methods are top-notch!',
-          },
-          {
-              user: 'USER_ID_2',
-              rating: 4,
-              comment: 'Great teacher, but sometimes goes too fast.',
-          }
-      ],
-      overallRating: 4.5
-  },
-  {
-      name: 'Dr. Niranjan Bhattacharyya',
-      bio: 'Dr. Bhattacharyya has been teaching Engineering for over 16 years with a focus on real-world applications.',
-      image: 'https://example.com/images/niranjan.jpg',
-      subjects: ['Mechanical Engineering', 'Thermodynamics'],
-      reviews: [
-          {
-              user: 'USER_ID_3',
-              rating: 4,
-              comment: 'Engaging lectures but difficult to keep up sometimes.',
-          }
-      ],
-      overallRating: 4
-  },
-  {
-      name: 'Dr. Anjali Sharma',
-      bio: 'Dr. Sharma is a renowned professor in the field of Computer Science with a special focus on Data Structures and Algorithms.',
-      image: 'https://example.com/images/anjali.jpg',
-      subjects: ['Computer Science', 'Data Structures'],
-      reviews: [
-          {
-              user: 'USER_ID_4',
-              rating: 5,
-              comment: 'Amazing professor! Her explanations are crystal clear.',
-          },
-          {
-              user: 'USER_ID_5',
-              rating: 4,
-              comment: 'Very knowledgeable but the pace is fast.',
-          }
-      ],
-      overallRating: 4.5
-  },
-  {
-      name: 'Prof. Ramesh Singh',
-      bio: 'Prof. Ramesh Singh specializes in teaching Electrical Engineering and has over 10 years of teaching experience.',
-      image: 'https://example.com/images/ramesh.jpg',
-      subjects: ['Electrical Engineering', 'Circuit Analysis'],
-      reviews: [
-          {
-              user: 'USER_ID_6',
-              rating: 3,
-              comment: 'Good teacher but his lectures can be monotonous at times.',
-          }
-      ],
-      overallRating: 3
-  },
-  {
-      name: 'Dr. Meera Kapoor',
-      bio: 'Dr. Meera Kapoor is a passionate educator in the field of Environmental Science and Sustainable Development.',
-      image: 'https://example.com/images/meera.jpg',
-      subjects: ['Environmental Science', 'Sustainable Development'],
-      reviews: [
-          {
-              user: 'USER_ID_7',
-              rating: 4,
-              comment: 'Her classes are insightful and thought-provoking!',
-          }
-      ],
-      overallRating: 4
-  }
+const teachers =[
+    {
+        itemName: "Engineering Mathematics Book",
+        category: "Book",
+        description: "A well-maintained book with all exercises solved.",
+        price: 500,
+        condition: "Like New",
+        title: "Engineering Mathematics",
+        author: "B.S. Grewal",
+        edition: "7th",
+        course: "B.Tech - First Year",
+        sellerName: "Rahul Sharma",
+        sellerContact: "1234567890",
+        sellerEmail: "rahul@example.com",
+        location: "Delhi",
+        image: "math-book.jpg"
+    },
+    {
+        itemName: "Plastic Drafter",
+        category: "Drafter",
+        description: "Good condition drafter for engineering drawing.",
+        price: 300,
+        condition: "Used",
+        brand: "Camlin",
+        material: "Plastic",
+        sellerName: "Amit Singh",
+        sellerContact: "9876543210",
+        sellerEmail: "amit@example.com",
+        location: "Mumbai",
+        image: "drafter.jpg"
+    },
+    {
+        itemName: "Lab Coat - Size L",
+        category: "Lab Coat",
+        description: "Lab coat in excellent condition, suitable for chemistry labs.",
+        price: 200,
+        condition: "Like New",
+        size: "L",
+        color: "White",
+        sellerName: "Priya Mehta",
+        sellerContact: "1231231234",
+        sellerEmail: "priya@example.com",
+        location: "Pune",
+        image: "lab-coat.jpg"
+    }
 ];
 
-  
-  module.exports = {data : teachers};
+   
+module.exports = {data : teachers};
   

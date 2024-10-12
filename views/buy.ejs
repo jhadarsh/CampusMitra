@@ -1,0 +1,115 @@
+<!-- views/buySell.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy and Sell College Items</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #ff6f61;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        .items-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 40px;
+        }
+        .item-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 300px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .item-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .item-card h2 {
+            font-size: 1.5rem;
+            margin: 15px;
+        }
+        .item-card p {
+            margin: 0 15px 10px;
+            font-size: 1rem;
+        }
+        .item-card button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .item-card button:hover {
+            background-color: #e0554e;
+        }
+        .item-card:hover {
+            transform: translateY(-10px);
+        }
+        .card-footer {
+            margin: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Buy and Sell College Items</h1>
+        <p>Find or sell second-hand books, lab coats, calculators, and more.</p>
+    </div>
+
+    <div class="items-container">
+        <% for( item of items) { %>
+            <div class="item-card">
+                <img src="<%= item.image %>" alt="<%= item.itemName %>">
+                <h2><%= item.itemName %></h2>
+                <p><%= item.description %></p>
+                <p><strong>Price: ₹<%= item.price %></strong></p>
+                <p>Condition: <%= item.condition %></p>
+    
+                <!-- Category Specific Fields -->
+                <% if (item.category === 'Book') { %>
+                <p>Title: <%= item.title %></p>
+                <p>Author: <%= item.author %></p>
+                <p>Edition: <%= item.edition %></p>
+                <% } else if (item.category === 'Drafter') { %>
+                <p>Brand: <%= item.brand %></p>
+                <p>Material: <%= item.material %></p>
+                <% } else if (item.category === 'Lab Coat') { %>
+                <p>Size: <%= item.size %></p>
+                <p>Color: <%= item.color %></p>
+                <% } %>
+    
+                <p class="card-footer">Seller: <%= item.sellerName %> | Location: <%= item.location %></p>
+                <button>Contact Seller</button>
+            </div>
+        <% } %>
+       
+    </div>
+
+</body>
+</html>

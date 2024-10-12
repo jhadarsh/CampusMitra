@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .card-header {
+            background-color: #343a40;
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .exam-details {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .badge {
+            font-size: 0.9rem;
+        }
+
+        .difficulty-easy {
+            background-color: #28a745;
+        }
+
+        .difficulty-medium {
+            background-color: #ffc107;
+        }
+
+        .difficulty-hard {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-5">Exam Information</h1>
+        <% for( exam of exams) { %>
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-title">
+                        <%= exam.subject %> - <%= exam.examType %>
+                    </h5>
+                    <span
+                        class="badge <% if (exam.difficultyLevel === 'Easy') { %> difficulty-easy <% } else if (exam.difficultyLevel === 'Medium') { %> difficulty-medium <% } else { %> difficulty-hard <% } %>">
+                        <%= exam.difficultyLevel %>
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="exam-details">
+                        <p><strong>Date:</strong>
+                            <%= new Date(exam.examDate).toLocaleDateString() %>
+                        </p>
+                        <p><strong>Duration:</strong>
+                            <%= exam.duration %>
+                        </p>
+                        <p><strong>Syllabus:</strong>
+                            <%= exam.syllabus %>
+                        </p>
+                        <p><strong>Total Marks:</strong>
+                            <%= exam.marksDistribution.totalMarks %>
+                                (<strong>Internal:</strong>
+                                <%= exam.marksDistribution.internalMarks %>,
+                                    <strong>External:</strong>
+                                    <%= exam.marksDistribution.externalMarks %>)
+                        </p>
+                        <p><strong>Semester:</strong>
+                            <%= exam.semester %>
+                        </p>
+                    </div>
+                    <a href="#" class="btn btn-primary">View More Details</a>
+                </div>
+            </div>
+            <% } %>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

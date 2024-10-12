@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
-const Teacher = require("../models/teachers.js");
+const BuySellItem = require("../models/buy.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/CampusMitra";
 main()
@@ -15,11 +15,11 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 const initDB = async () => {
-  await Teacher.deleteMany({});
+  await BuySellItem.deleteMany({});
   initData.data = initData.data.map((obj) => ({
     ...obj,
   }));
-  await Teacher.insertMany(initData.data);
+  await BuySellItem.insertMany(initData.data);
   console.log("data was initialized");
 };
 

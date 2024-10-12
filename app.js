@@ -4,6 +4,11 @@ const mongoose = require("mongoose");
 const Professor = require("./models/professors");
 const Society = require("./models/societies");
 const Teacher = require("./models/teachers");
+const Subject = require("./models/subjects");
+const Accommodation = require("./models/accommodation");
+const ExamInfo = require("./models/exam");
+const BuySellItem = require("./models/buy");
+
 const path = require("path");
 const methodOverride = require("method-override");
 
@@ -43,6 +48,25 @@ app.get("/home", (req, res) => {
 app.get("/professors-reviews", async (req,res)=>{
   let teachers = await Teacher.find();
   res.render("teachers.ejs" , {teachers});
+})
+
+app.get("/View-subjects", async (req,res)=>{
+  let subjects = await Subject.find();
+  res.render("subject.ejs" , {subjects});
+})
+
+app.get("/View-accommodations", async (req,res)=>{
+  let accommodations = await Accommodation.find();
+  res.render("accommodation.ejs" , {accommodations});
+})
+
+app.get("/View-exam-info", async (req,res)=>{
+  let exams = await ExamInfo.find();
+  res.render("exam.ejs" , {exams});
+})
+app.get("/BuyandSell", async (req,res)=>{
+  let items = await BuySellItem.find();
+  res.render("buy.ejs" , { items });
 })
 
 app.listen(8080, (req, res) => {

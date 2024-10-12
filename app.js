@@ -9,8 +9,14 @@ const Accommodation = require("./models/accommodation");
 const ExamInfo = require("./models/exam");
 const BuySellItem = require("./models/buy");
 
+//for socket io
+const http = require('http');
+const socketIo = require('socket.io');
+
 const path = require("path");
 const methodOverride = require("method-override");
+const server = http.createServer(app);
+const io = socketIo(server);
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -29,6 +35,32 @@ async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/CampusMitra");
 }
 
+
+// Socket.io connection
+io.on('connection', (socket) => {
+  console.log('New user connected: ', socket.id);
+
+  // Listen for messages from clients
+  socket.on('chatMessage', (msg) => {
+      io.emit('chatMessage', msg); // Broadcast message to all connected users
+  });
+
+  // Listen for peer-to-peer signaling
+  socket.on('signal', (signal) => {
+      socket.broadcast.emit('signal', signal); // Send signaling data to peers
+  });
+
+  // Handle disconnect
+  socket.on('disconnect', () => {
+      console.log('User disconnected: ', socket.id);
+  });
+});
+
+app.get("/peer", (req, res) => {
+  // let datas = await Society.find();
+    res.render("peerconnect.ejs");
+  
+});
 app.get("/", async (req, res) => {
   let datas = await Professor.find();
   res.render("main.ejs", { datas });
@@ -69,6 +101,6 @@ app.get("/BuyandSell", async (req,res)=>{
   res.render("buy.ejs" , { items });
 })
 
-app.listen(8080, (req, res) => {
+server.listen(8080, (req, res) => {
   console.log("port is listening on 8080");
 });
